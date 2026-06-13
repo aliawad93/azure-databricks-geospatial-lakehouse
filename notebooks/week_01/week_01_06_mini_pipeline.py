@@ -4,7 +4,7 @@
 # MAGIC
 # MAGIC ## Objective
 # MAGIC
-# MAGIC Create a simple raw to cleaned to summary data pipeline using Pyspark and SQL
+# MAGIC Create a simple raw to cleaned to summary data pipeline using PySpark and SQL
 # MAGIC
 # MAGIC ## Layers
 # MAGIC
