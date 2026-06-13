@@ -1,31 +1,26 @@
-# Glossary
+## Managed Table
+A table where Databricks manages the table metadata and storage location.
 
-## Databricks
-A cloud data platform used for data engineering, analytics and AI.
+## Temporary View
+A temporary SQL object created from a DataFrame so it can be queried using SQL during the current Spark session.
 
-## Notebook
-An interactive document where code, results and explanations can be combined.
+## saveAsTable
+A PySpark command used to save a DataFrame as a reusable table.
 
-## Spark
-A distributed processing engine used for large-scale data processing.
+## withColumn
+A PySpark command used to add a new column or update an existing column.
 
-## PySpark
-The Python API for Apache Spark.
+## fillna
+A PySpark command used to replace null values.
 
-## DataFrame
-A table-like structure used in Spark for processing data.
+## Medallion Architecture
+A lakehouse design pattern that organises data into Bronze, Silver and Gold layers.
 
-## Spark SQL
-SQL used to query data inside Spark/Databricks.
+## Bronze Layer
+The raw data layer.
 
-## Delta Lake
-A storage layer used for reliable lakehouse tables.
+## Silver Layer
+The cleaned and standardised data layer.
 
-## Bronze
-Raw data layer.
-
-## Silver
-Cleaned and standardised data layer.
-
-## Gold
-Business-ready analytics layer.
+## Gold Layer
+The reporting or business-ready data layer.
