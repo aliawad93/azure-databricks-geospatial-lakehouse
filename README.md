@@ -2,9 +2,28 @@
 
 This repository documents my learning journey towards Azure Databricks, PySpark, Spark SQL and lakehouse-style data engineering.
 
+The project starts with basic Databricks training notebooks and progressively develops into a practical portfolio project focused on geospatial, environmental, energy and real-world open datasets.
+
 ## Goal
 
-Build practical skills in Databricks and data engineering, with a focus on geospatial, environmental, energy and real-world open datasets.
+Build practical hands-on skills in Databricks and modern data engineering, with a focus on:
+
+* Azure Databricks
+* PySpark
+* Spark SQL
+* Delta/lakehouse-style tables
+* Bronze, Silver and Gold pipeline structure
+* Data quality checks
+* Real-world open datasets
+* Future geospatial processing using GeoParquet and Apache Sedona
+
+## Why This Project Matters
+
+This project demonstrates practical data engineering skills using Databricks, PySpark, Spark SQL and lakehouse-style architecture.
+
+It starts with simple training notebooks and then applies the same concepts to a larger real-world public dataset. The aim is to build a portfolio that shows hands-on ability with data ingestion, transformation, table creation, quality checks and reporting-ready outputs.
+
+The longer-term goal is to develop a strong geospatial data engineering portfolio using Databricks, Spark and lakehouse patterns.
 
 ## Week 1 Summary
 
@@ -56,9 +75,11 @@ After completing the basic training notebooks, I applied the same concepts to a 
 
 The first mini pipeline uses a small environmental-style sample dataset and follows a simple medallion-style structure:
 
-* Bronze: raw environmental asset data
-* Silver: cleaned and standardised data
-* Gold: summary table for reporting
+| Layer  | Purpose                       |
+| ------ | ----------------------------- |
+| Bronze | Raw environmental asset data  |
+| Silver | Cleaned and standardised data |
+| Gold   | Summary table for reporting   |
 
 ## Week 1 Real Data Extension
 
@@ -75,8 +96,8 @@ This extension uses:
 * Row count checks
 * Null checks
 * Invalid value checks
-* Duplicate-like record checks
-* A lookup join to enrich trip records with pickup borough and zone names
+* Potential duplicate checks
+* A lookup join to enrich trip records with pickup borough and pickup zone names
 
 The raw data files are not stored in this repository. They were downloaded from the official NYC TLC source and uploaded manually into Databricks.
 
@@ -126,7 +147,7 @@ The notebooks include the following data quality checks:
 * Rows removed during cleaning
 * Null checks on important columns
 * Invalid value checks after cleaning
-* Duplicate-like record checks
+* Potential duplicate checks
 * Missing pickup zone check after lookup join
 * Saved table verification
 
@@ -134,12 +155,12 @@ The notebooks include the following data quality checks:
 
 The real-data taxi notebook processed more than 2.9 million Bronze records.
 
-Key results:
-
-* Bronze row count: 2,964,624
-* Silver row count after cleaning: 2,870,066
-* Rows removed during cleaning: 94,558
-* Trips with missing pickup zone after join: 0
+| Metric                                    |     Value |
+| ----------------------------------------- | --------: |
+| Bronze taxi trip records                  | 2,964,624 |
+| Silver taxi trip records after cleaning   | 2,870,066 |
+| Rows removed during cleaning              |    94,558 |
+| Trips with missing pickup zone after join |         0 |
 
 ## Key Learning
 
@@ -148,6 +169,26 @@ A DataFrame is temporary while working in a notebook, but a saved Databricks tab
 PySpark is the Python way of using Spark, while Spark SQL is the SQL way of using Spark.
 
 The Bronze/Silver/Gold pattern helps structure data pipelines by separating raw data, cleaned data and reporting-ready data.
+
+This is an early lakehouse data engineering pipeline. Later stages of the project will extend it with geospatial processing using taxi zone geometries, GeoParquet and Apache Sedona.
+
+## Known Limitations
+
+* The raw taxi files are not included in the repository because they are large.
+* The current pipeline is batch-based and manually triggered.
+* The current version focuses on pickup zone enrichment only.
+* The project does not yet include automated scheduling, incremental loading or Unity Catalog governance.
+* The current taxi pipeline is not yet fully geospatial because it does not use taxi zone boundary geometries.
+* Geospatial processing will be added in later weeks using taxi zone geometries, GeoParquet and Apache Sedona.
+
+## Next Steps
+
+* Add stronger PySpark transformations and reusable functions.
+* Practise joins, window functions and date/time analysis.
+* Add more detailed data quality checks.
+* Create incremental loading examples.
+* Add workflow orchestration using Databricks Workflows.
+* Introduce geospatial processing using taxi zones, GeoParquet and Apache Sedona.
 
 ## Repository Structure
 
